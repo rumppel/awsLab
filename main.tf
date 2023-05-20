@@ -51,7 +51,7 @@ resource "aws_instance" "app_server" {
   ami                         = "ami-007855ac798b5175e"
   instance_type               = "t3.micro"
   key_name                    = "keyforlab"
-  vpc_security_group_ids      = [aws_security_group.awsLab.id]
+  vpc_security_group_ids      = [aws_security_group.awsLab_sc1.id]
   associate_public_ip_address = true
   user_data                   = file("userdata.sh")
   tags = {
