@@ -9,10 +9,10 @@ terraform {
   required_version = ">= 1.2.0"
 
   cloud {
-    organization = "grandmax13"
+    organization = "spatkiorg"
 
     workspaces {
-      name = "lab6"
+      name = "awsLab"
     }
   }
 }
