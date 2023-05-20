@@ -9,7 +9,7 @@ terraform {
   required_version = ">= 1.2.0"
 
   cloud {
-    organization = "spatkiorg"
+    organization = "nespatki"
 
     workspaces {
       name = "awsLab"
@@ -18,9 +18,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-1c"
-  access_key = var.AWS_ACCESS_KEY_ID
-  secret_key = var.AWS_SECRET_ACCESS_KEY
+  region = "us-east-1"
 }
 
 resource "aws_security_group" "awsLab_sc" {
@@ -50,9 +48,9 @@ resource "aws_security_group" "awsLab_sc" {
 }
 
 resource "aws_instance" "app_server" {
-  ami                         = "ami-007855ac798b5175e"
+  ami                         = "ami-053b0d53c279acc90"
   instance_type               = "t2.micro"
-  key_name                    = "keyforlab"
+  key_name                    = "keyforlab4"
   vpc_security_group_ids      = [aws_security_group.awsLab_sc.id]
   associate_public_ip_address = true
   user_data                   = file("userdata.sh")
