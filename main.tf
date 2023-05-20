@@ -21,8 +21,8 @@ provider "aws" {
   region = "eu-north-1"
 }
 
-resource "aws_security_group" "lab6" {
-  name        = "lab6_sc1"
+resource "aws_security_group" "awsLab" {
+  name        = "awsLab_sc1"
   description = "Allow HTTP and SSH traffic via Terraform"
 
   ingress {
@@ -51,10 +51,10 @@ resource "aws_instance" "app_server" {
   ami                         = "ami-007855ac798b5175e"
   instance_type               = "t3.micro"
   key_name                    = "keyforlab"
-  vpc_security_group_ids      = [aws_security_group.lab6.id]
+  vpc_security_group_ids      = [aws_security_group.awsLab.id]
   associate_public_ip_address = true
   user_data                   = file("userdata.sh")
   tags = {
-    Name = "Lab6"
+    Name = "awsLab"
   }
 }
