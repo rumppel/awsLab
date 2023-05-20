@@ -18,10 +18,10 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-north-1"
+  region = "us-east-1c"
 }
 
-resource "aws_security_group" "awsLab" {
+resource "aws_security_group" "awsLab_sc1" {
   name        = "awsLab_sc1"
   description = "Allow HTTP and SSH traffic via Terraform"
 
